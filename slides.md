@@ -9,7 +9,13 @@
 ## A Definition
 Wikipedia:
 > a style of building the structure and elements of computer programs, that treats computation as the evaluation of mathematical functions and avoids state and mutable data. Functional programming emphasizes functions that produce results that depend only on their inputs and not on the program state - i.e. pure mathematical functions. 
-
+---
+## Sample code
+```
+> git clone https://github.com/Bijnagte/functional-groovy-code.git
+> cd functional-groovy-code/src/main/groovy
+> groovysh
+```
 ---
 ## Immutability
 
@@ -161,6 +167,27 @@ Categories applied globally in the Groovy runtime
 
 [Collection GroovyDoc](http://groovy.codehaus.org/groovy-jdk/java/util/Collection.html)
 ---
+## Imperative vs declarative
+``` groovy
+int addIntegers(int... integers) {
+	int result = 0
+
+	for (int i = 0; i < integers.size(); i++) {
+		result += integers[i]
+	}
+	result
+}
+
+addIntegers(1, 2, 3) == [1, 2, 3].sum()
+
+```
+---
+## Functions operating on data
+
+Alan Perlis:
+> It is better to have 100 functions operate on one data structure than 10 functions on 10 data structures.
+
+---
 ## Collect - groovy's map
 ``` groovy
 list = [1, 2, 3, 4, 5, 6]
@@ -244,30 +271,12 @@ counter
 
 ```
 ---
-## Functions operating on data
-
-Alan Perlis:
-> It is better to have 100 functions operate on one data structure than 10 functions on 10 data structures.
-
-Groovy's duck typing allows for generalization
-
----
 # Benefits
 * Ability to reason about increases
-  * Fewer moving parts
-  * Referential transparency
 * Testability
-  * Referential transparency
-  * No state to setup
-  * No mutation to verify
 * Safer concurrency
-  * Immutable objects can be shared
 * Code reuse 
-  * Not tied to classes
-  * Compose algorithms with general parts
 * Performance optimizations
-  * Memoization
-  * Optimized functions can be reused
 
 ---
 ## Questions?
