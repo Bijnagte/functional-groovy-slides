@@ -22,6 +22,7 @@ Wikipedia:
 * consistent inputs
 * safe sharing
 * values not places
+* cacheable
 
 ---
 ## @Immutable
