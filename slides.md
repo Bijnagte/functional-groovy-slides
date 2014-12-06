@@ -31,7 +31,7 @@ Immutability the groovy way
 ``` groovy
 import groovy.transform.Immutable
 
-@Immutable
+@Immutable(copyWith = true)
 class ImmutableType {
 	int integer
 	String string
@@ -211,6 +211,10 @@ list = [1, 2, 3, 4, 5, 6]
 list.inject(1) { a, b -> a * b }
 
 => 720
+
+list.inject { a, b -> a * b }
+
+=> 720
 ```
 ---
 ## Currying
@@ -256,21 +260,26 @@ process(input)
 ## Memoization
 Caching repeatable results
 ```groovy
-counter = 0
+add = { a, b ->
+    println "$a * $b = ${a * b}" 
+    a * b
+}
 
-fn = { arg -> counter ++ }
-(1..10).each { fn(2) }
- 
-counter
- 
-counter = 0
- 
-memoizedFn = fn.memoize()
-(1..10).each { memoizedFn(2) }
- 
-counter
-
+memoizedAdd = add.memoize()
 ```
+
+---
+## @Memoized
+```groovy
+import groovy.transform.Memoized
+
+@Memoized
+int memoizedMultiply(int a, int b) {
+    println "$a * $b = ${a * b}" 
+    a * b
+}
+```
+
 ---
 # Benefits
 * Ability to reason about increases
